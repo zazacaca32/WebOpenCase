@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('auth/steam', 'AuthController@redirectToSteam')->name('auth.steam');
+Route::get('auth/steam/handle', 'AuthController@handle')->name('auth.steam.handle');
+
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+//Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
