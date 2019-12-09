@@ -25,3 +25,12 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+Route::prefix('admin')->group(function () {
+    Route::get('/', 'AdminController@index');
+    Route::get('/users', 'AdminController@users');
+    Route::get('/users/{id}', 'AdminController@user_edit');
+    Route::post('/users/{id}/update', 'AdminController@user_update');
+    Route::get('/users/{id}/delete', 'AdminController@user_delete');
+    Route::get('/users/{id}/package/{package}', 'AdminController@user_package');
+});
+
