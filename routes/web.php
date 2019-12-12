@@ -29,3 +29,12 @@ Route::prefix('case')->group(function () {
     Route::get('/{case}/open', "CaseController@open");
 });
 
+Route::prefix('admin')->group(function () {
+    Route::get('/', 'AdminController@index');
+    Route::get('/users', 'AdminController@users');
+    Route::get('/users/{id}', 'AdminController@user_edit');
+    Route::post('/users/{id}/update', 'AdminController@user_update');
+    Route::get('/users/{id}/delete', 'AdminController@user_delete');
+    Route::get('/users/{id}/package/{package}', 'AdminController@user_package');
+});
+
