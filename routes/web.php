@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('auth/steam', 'AuthController@redirectToSteam')->name('auth.steam');
@@ -24,4 +24,8 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::prefix('case')->group(function () {
+    Route::get('/{case}', "CaseController@index");
+    Route::get('/{case}/open', "CaseController@open");
+});
 
